@@ -36,7 +36,7 @@ jobs:
         run: python -m discovery_data_agent.cli eval gate --out reports
       - name: Evidencia de la compuerta
         if: always()
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02  # v4
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9  # v7.0.2
         with:
           name: compuerta-de-calidad
           path: reports/
@@ -88,7 +88,7 @@ jobs:
           # --package-lock-only: este trabajo no instala node_modules, y sin el indicador npm sbom falla por dependencias ausentes.
           cd web && npm sbom --omit dev --sbom-format cyclonedx --package-lock-only > ../sbom/discovery-data-agent-web.cdx.json
       - name: Publicar el SBOM
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02  # v4
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9  # v7.0.2
         with:
           name: sbom
           path: sbom/
